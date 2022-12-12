@@ -33,6 +33,7 @@ end
 
 group :development do
 
+  gem "guard-bundler", require: false
   gem "rack-mini-profiler"
   gem "web-console"
   gem "listen"
@@ -50,5 +51,6 @@ group :test do
   gem "minitest-reporters"
   gem "guard"
   gem "guard-minitest"
+  gem "guard-rspec", require: false
 
 end
