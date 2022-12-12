@@ -26,8 +26,8 @@ gem "bootsnap", require: false
 
 group :development, :test do
 
-  gem "sqlite3", "~> 1.4"
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "mysql2", "~> 0.5.2"
 
 end
 
@@ -39,14 +39,6 @@ group :development do
   gem "spring"
 
 end
-
-# in production I propose using mySQL 8.0  
-
-#group :production do
-
-#  gem "mysql2", "~> 0.5.2" 
-
-#end
 
 group :test do
 
