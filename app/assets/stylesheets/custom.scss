@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* style for pages */
+/* style for the all pages */
 
 body {
     padding-top: 60px;
@@ -17,11 +17,26 @@ textarea {
 
 .center {
     text-align: center;
-}
-
-.center h1 {
+  h1 {
     margin-bottom: 10px;
-}
+    }
+}     
+
+/* style for a header */
+
+#logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 1.4em;
+    color:#666;
+    text-transform: downcase;
+    letter-spacing: 1px;
+    padding-top: 9px;
+    &:hover {
+    color: white;
+    text-decoration: none;
+    }
+}    
 
 
 /* style for a text*/
@@ -51,3 +66,31 @@ p {
     font-size: 1.1em;
     line-height: 1.7em;
 }
+
+/* style for a footer */
+
+footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid #eae;
+    color: #888;
+    a {
+    color: #555;
+        &:hover {
+        color:#222;
+            }
+    }  
+    small {
+    float: left;
+    margin-left: 15px;
+    }
+    ul {
+    float: right;
+    list-style: none;
+    margin-right: 15px;
+        li {
+        float: left;
+        margin-left: 15px;
+        }
+    }
+}        
