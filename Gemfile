@@ -28,6 +28,7 @@ group :development, :test do
 
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "mysql2", "~> 0.5.2"
+  gem "localhost"
 
 end
 
