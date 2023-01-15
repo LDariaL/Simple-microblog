@@ -3,11 +3,23 @@ module SessionsHelper
     def log_in(user)
         session[:user_id] = user.id
     end
+    # запоминает пользователя
+    def remember(user)     # ...is used in SessionsController 
+        user.remember      # user.remember - это self.метод из User model
+        cookies.permanent.encrypted[:user_id] = user.id
+        cookies.permanent[:remember_token] = user.remember_token
+    end    
     # возвращает текущего пользователя, если уже есть (не ищет каждый раз по id в базе), обеспечение сессии
     def current_user
-        if session[:user_id]
-            @current_user ||= User.find_by(id: session[:user_id])
-        end
+        if (user_id = session[:user_id])
+            @current_user ||= User.find_by(id: user_id)
+      elsif (user_id = cookies.encrypted[:user_id])
+            user = User.find_by(id: user_id)
+        if user && user.authenticated?(cookies[:remember_token])
+            log_in user
+            @current_user = user
+        end    
+      end
     end     
     # returns true if the user is logged in (current_user != nil), false otherwise
     def logged_in?

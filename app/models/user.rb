@@ -9,22 +9,27 @@ class User < ApplicationRecord
     has_secure_password
     validates :password, presence: true, length: { minimum: 8 }   
 
- # we can use self methods through class << self   
+# we can use self methods through class << self   
 
-    def User.digest(string) # = self.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST
+# return the hash digest of the string
+    def User.digest(string)             # = self.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
 
-# random token    
-    def User.new_token # = self.new_token
+# generates a random token for the user
+    def User.new_token                  # = self.new_token
         SecureRandom.urlsafe_base64    
     end
 
-# remembering the user for a persistent session    
+# remembering the user for a persistent session (...is used in SessionsHelper)   
     def remember
         self.remember_token = User.new_token
         update_attribute(:remember_digest, User.digest(remember_token))
     end    
 
+# return TRUE IF the given token matches the user's digest
+    def authenticated?(remember_token)
+        BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    end
 end
