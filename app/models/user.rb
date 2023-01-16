@@ -7,7 +7,8 @@ class User < ApplicationRecord
                         format: { with: VALID_EMAIL_REGEX },
                         uniqueness: { case_sensitive: false }
     has_secure_password
-    validates :password, presence: true, length: { minimum: 8 }   
+# allow nil password it might be useful for the tests; the users can't sign up with empty password because has_secure_password method doesn't allow it
+    validates :password, presence: true, length: { minimum: 8 }, allow_nil: true   
 
 # we can use self methods through class << self   
 
