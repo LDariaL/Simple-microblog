@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   # if user && user.authenticate(params[:session][:password])                   # if statemet is true only IF a user with the given email exists in the database
   # params hash where params[:session][:email] and params[:session][:password]  # AND (&&) has the given password
       log_in user
-      remember user       # метод remember из модуля SessionsHelper
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user
     else
     flash.now[:danger] = "Invalid email or password"

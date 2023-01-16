@@ -4,7 +4,7 @@ module SessionsHelper
         session[:user_id] = user.id
     end
     # запоминает пользователя
-    def remember(user)     # ...is used in SessionsController 
+    def remember(user)     
         user.remember      # user.remember - это self.метод из User model
         cookies.permanent.encrypted[:user_id] = user.id
         cookies.permanent[:remember_token] = user.remember_token
