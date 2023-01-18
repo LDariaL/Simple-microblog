@@ -4,10 +4,12 @@ module SessionsHelper
         session[:user_id] = user.id
     end
     # запоминает пользователя
-    def remember(user)     
-        user.remember      # user.remember - это self.метод из User model
-        cookies.permanent.encrypted[:user_id] = user.id
-        cookies.permanent[:remember_token] = user.remember_token
+    def remember_from_helper(user)     
+        user&.remember_from_model   
+        if defined? cookies  
+            cookies.permanent.encrypted[:user_id] = user.id 
+            cookies.permanent[:remember_token] = user.remember_token  
+        end
     end    
     # возвращает текущего пользователя, если уже есть (не ищет каждый раз по id в базе), обеспечение сессии
     def current_user
@@ -15,7 +17,7 @@ module SessionsHelper
             @current_user ||= User.find_by(id: user_id)
       elsif (user_id = cookies.encrypted[:user_id])
             user = User.find_by(id: user_id)
-        if user && user.authenticated?(cookies[:remember_token])
+        if user&.authenticated?(cookies[:remember_token])
             log_in user
             @current_user = user
         end    
