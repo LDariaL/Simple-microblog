@@ -3,8 +3,8 @@
 User.create!(name:                  "Daria",
              email:                 "daria@microblog.ru",   
              password:              "qwertyqwerty",
-             password_confirmation: "qwertyqwerty"
-            )
+             password_confirmation: "qwertyqwerty",
+             admin:                  true)
 
 
 
