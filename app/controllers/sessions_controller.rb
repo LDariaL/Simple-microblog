@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-  # "safe navigation" operator &. (obj && obg.method = obg&.method) 
+  # "safe navigation" operator &.   obj && obg.method = obg&.method
     if user&.authenticate(params[:session][:password]) 
   # if user && user.authenticate(params[:session][:password])                   # if statemet is true only IF a user with the given email exists in the database
   # params hash where params[:session][:email] and params[:session][:password]  # AND (&&) has the given password
