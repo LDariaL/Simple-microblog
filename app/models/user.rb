@@ -8,34 +8,5 @@ class User < ApplicationRecord
                         uniqueness: { case_sensitive: false }
     has_secure_password
 # allow nil password it might be useful for the tests; the users can't sign up with empty password because has_secure_password method doesn't allow it
-    validates :password, presence: true, length: { minimum: 8 }, allow_nil: true   
-
-# we can use self methods through class << self   
-
-# return the hash digest of the string
-    def User.digest(string)             # = self.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-    end
-# generates a random token for the user
-    def User.new_token                  # = self.new_token
-        SecureRandom.urlsafe_base64    
-    end
-
-# remembering the user for a persistent session (...is used in SessionsHelper)   
-    def remember_from_model
-        self.remember_token = User.new_token
-        update_attribute(:remember_digest, User.digest(remember_token))
-    end    
-
-# return TRUE IF the given token matches the user's digest
-    def authenticated?(remember_token)
-        return false if remember_digest.nil?
-        BCrypt::Password.new(remember_digest).is_password?(remember_token)
-    end
-# forgets a user    
-    def forget
-        update_attribute(:remember_digest, nil)
-    end    
+    validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
 end

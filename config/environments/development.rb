@@ -24,7 +24,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
- 
+  config.sass.inline_source_maps = true
+
   config.active_storage.service = :local
   
   config.action_mailer.raise_delivery_errors = false

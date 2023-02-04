@@ -5,11 +5,12 @@ module SessionsHelper
   end
   # запоминает пользователя
   def remember_from_helper(user)     
-    user&.remember_from_model   
+    if Users::Remember.new(user).call
       if defined? cookies  
         cookies.permanent.encrypted[:user_id] = user.id 
         cookies.permanent[:remember_token] = user.remember_token  
       end
+    end  
   end    
   # возвращает текущего пользователя, если уже есть (не ищет каждый раз по id в базе), обеспечение сессии
   def current_user
@@ -44,17 +45,14 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.original_url if request.get?  
   end
-
-  # a persistent session is stopped existing
-  def forget(user)
-    user.forget
-    cookies.delete(:user_id)
-    cookies.delete(:remember_token)
-  end    
-
+ 
   def log_out
-    forget(current_user)
-    session.delete(:user_id)
-    @current_user = nil
+    result = Users::Forget.new(@current_user).call
+    if result
+      cookies.delete(:user_id)
+      cookies.delete(:remember_token)
+      session.delete(:user_id)
+      @current_user = nil
+    end
   end    
 end

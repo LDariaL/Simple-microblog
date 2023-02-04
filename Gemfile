@@ -13,14 +13,13 @@ gem "faker"
 gem "will_paginate"
 gem "importmap-rails"
 gem "bootstrap-will_paginate"
-gem "bootstrap-sass"
 gem "turbo-rails"
 gem "sass-rails"
 gem "webpacker"
 gem "stimulus-rails"
 gem "jbuilder"
 gem "jquery-rails"
-gem "bootstrap"
+gem "bootstrap-sass"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
