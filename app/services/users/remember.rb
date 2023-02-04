@@ -16,6 +16,8 @@ module Users
       end   
     end  
 
+    private
+
      # return TRUE IF the given token matches the user's digest
     def authenticated?(remember_token)
       return false if remember_digest.nil?
