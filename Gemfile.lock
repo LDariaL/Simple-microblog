@@ -339,6 +339,7 @@ DEPENDENCIES
   listen
   localhost
   mysql2 (~> 0.5.2)
+  pry
   puma (~> 5.0)
   rack-mini-profiler
   rails (~> 7.0.4)
