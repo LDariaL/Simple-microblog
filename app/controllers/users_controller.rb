@@ -6,12 +6,11 @@ class UsersController < ApplicationController
 
 # to paginate the users (will_paginate gem)      разбиение списка пользователей на страницы 
   def index
-    @users = User.where(activated: FILL_IN).paginate(page: params[:page], per_page: 30)
+    @users = User.where(activated: true).paginate(page: params[:page], per_page: 30)
   end  
 
   def show
     @user = User.find(params[:id])
-    redirect_to root_url and return unless FILL_IN
   end
 
   def new

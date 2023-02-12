@@ -14,7 +14,8 @@ class AccountActivationsController < ApplicationController
   end
 
   def activate
-    update_columns(activated: FILL_IN, activated_at: FILL_IN)
+    update_attribute(:activated, true)
+    update_attribute(:activated_at, Time.zone.now)
   end
 
 end
