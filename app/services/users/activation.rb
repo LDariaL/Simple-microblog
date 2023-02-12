@@ -11,6 +11,7 @@ module Users
     def call
       downcase_email
       create_activation_token
+      send_activation_email
       @user.save
     end
 
@@ -22,5 +23,9 @@ module Users
       @user.activation_token = generate_new_token                   
       @user.activation_digest = user_digest(@user.activation_token)      
     end
+
+    def send_activation_email
+       UserMailer.account_activation(@user).deliver_now
+    end  
   end
 end      

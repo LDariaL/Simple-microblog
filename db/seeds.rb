@@ -5,7 +5,8 @@ User.destroy_all
             password:              "qwertyqwerty",
             password_confirmation: "qwertyqwerty",
             admin:                  true,
-            activated:              true, 
+            #false in production
+            activated:              true,                           
             activated_at:           Time.zone.now
             )
             Users::Activation.new(@user).call
@@ -18,7 +19,8 @@ User.destroy_all
              email:                 email,
              password:              password,
              password_confirmation: password,
-             activated:             true,
+             #false in production
+             activated:             true,                        
              activated_at:          Time.zone.now
              )        
              Users::Activation.new(@user).call    
