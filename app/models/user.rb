@@ -9,5 +9,6 @@ class User < ApplicationRecord
     has_secure_password
 # allow nil password it might be useful for the tests; the users can't sign up with empty password because has_secure_password method doesn't allow it
     validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
+    has_many :posts
 
 end

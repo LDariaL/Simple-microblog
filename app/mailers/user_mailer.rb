@@ -9,5 +9,5 @@ class UserMailer < ApplicationMailer
     # @greeting = "Hi"
 
     # mail to: "to@example.org"
-  end
+  # end
 end
