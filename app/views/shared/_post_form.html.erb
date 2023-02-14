@@ -1,0 +1,14 @@
+<%= form_with(model: @post, local: true) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+    <div class="small_field">
+      <%= f.text_area :content, placeholder: "Title..." %>
+    </div>  
+    <div class="field">  
+      <%= f.text_area :title, placeholder: "Compose new post..." %>
+    </div>
+    <div class="small_field">
+      <%= f.select :post_category_title, options_for_select(@post_categories.collect { |post_category| [post_category.title, post_category.id] }),
+                    { id: 'post_categories_select' }, {include_blank: 'no category'} %>
+    </div>  
+      <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
