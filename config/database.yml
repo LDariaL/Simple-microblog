@@ -3,9 +3,8 @@ default: &default
   pool: 5
   timeout: 5000
 
-
 development:
-  adapter: postgresql
+  <<: *default
   encoding: unicode
   pool: 5
   database: simple_microblog
@@ -13,9 +12,17 @@ development:
   password: 12345
   host: localhost
 
+production:
+  <<: *default
+  adapter: postgresql
+  database: <%= ENV['DATABASE_NAME'] %>
+  host: <%= ENV['DATABASE_ENDPOINT'] %>
+  port: <%= ENV.fetch('DATABASE_PORT', 5432) %>
+  username: <%= Rails.application.credentials.dig(:production, :database_username) %>
+  password: <%= Rails.application.credentials.dig(:production, :database_password) %>
 
 test:
-  adapter: postgresql
+  <<: *default
   encoding: unicode
   pool: 5
   database: simple_microblog
