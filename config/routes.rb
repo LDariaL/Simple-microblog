@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get '/logout',    to: 'sessions#destroy'
   resources :users
   resources :account_activations, only: [:edit]
-  resources :posts
-  get '/update_posts', to: 'posts#update_posts'
-  get '/posts', to: 'posts#show'
+  resources :post_categories, only: [:index, :edit, :update, :create, :destroy, :new]
+  resources :posts, only: [:index, :edit, :update, :create, :destroy, :new]
 end
