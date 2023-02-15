@@ -1,31 +1,24 @@
-
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: postgresql
+  pool: 5
   timeout: 5000
-  socket: /var/run/mysqld/mysqld.sock
-  username: <%= Rails.application.credentials.database[:username] %>
-  password: <%= Rails.application.credentials.database[:password] %>
+
 
 development:
-  <<: *default
-  username: <%= Rails.application.credentials.database[:username] %>
-  password: <%= Rails.application.credentials.database[:password] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: simple_microblog
+  username: postgres
+  password: 12345
   host: localhost
-  database: microblog_development
+
 
 test:
-  <<: *default
-  username: <%= Rails.application.credentials.database[:username] %>
-  password: <%= Rails.application.credentials.database[:password] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: simple_microblog
+  username: postgres
+  password: 12345
   host: localhost
-  database: microblog_test
-
-# production:
-#  adapter: postgresql
-#  encoding: unicode
-#  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-#  database: microblog_production
-#  username: microblogadmin
-#  password: <%= ENV["APP_DATABASE_PASSWORD"] %>

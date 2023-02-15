@@ -1,0 +1,2 @@
+PostCategory: <%= @post_category.attributes %><br/>
+Posts: <%= @posts.map{|p| p.attributes.to_s  + "<hr/>" }.to_s.html_safe %>

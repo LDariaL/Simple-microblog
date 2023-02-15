@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
-  
-  def home 
-    @posts = current_user.posts.paginate(page: params[:page])
+
+  def home
+    @posts = current_user ? current_user.posts.paginate(page: params[:page]) : Post.all.limit(5)
     @post = current_user.posts.build if logged_in?
   end
 
@@ -9,9 +9,9 @@ class StaticPagesController < ApplicationController
   end
 
   def about
-  end  
+  end
 
   def contact
-  end  
+  end
 
 end
