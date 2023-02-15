@@ -4,7 +4,7 @@
   <span class = "title"><%= @post.title %></span>
   <span class = "content">
   <%= @post.content %>
-  <%= image_tag @post.image if @post.image.attached? %>
+  <%= image_tag @post.images if @post.images.attached? %>
   </span>
   <span class = "post_category">POST CATEGORY: <%= link_to @post.post_category.title, post_category_path(@post.post_category_id) %></span>
   <span class = "timestamp">

@@ -1,2 +1,17 @@
-PostCategory: <%= @post_category.attributes %><br/>
-Posts: <%= @posts.map{|p| p.attributes.to_s  + "<hr/>" }.to_s.html_safe %>
+
+<% @posts.each do |post| %>
+ <div class="col-md-4">
+  <h1><%= post.title %></h1>
+  <p><%= post.content %></p>
+  <br>
+  <%= link_to 'Show post', post_path(post) %>
+ </div>
+<% end %>
+
+
+
+
+
+
+<%# @post_category.attributes %><br/>
+<%# @posts.map{|p| p.attributes.to_s  + "<hr/>" }.to_s.html_safe %>

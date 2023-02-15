@@ -1,7 +1,9 @@
 default: &default
   adapter: postgresql
-  pool: 5
-  timeout: 5000
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("PGS_HOST") { "db" } %>
+  username: <%= ENV.fetch("PGS_USER") { "postgres" } %>
+  password: <%= ENV.fetch("PGS_PASS") { "postgres" } %>
 
 development:
   <<: *default

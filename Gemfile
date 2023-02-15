@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem "foreman", "~> 0.87.2"
 gem "rails", "~> 7.0.4"
 gem "image_processing"
 gem "sprockets-rails"

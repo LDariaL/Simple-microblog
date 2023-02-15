@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   def create
     @post = @current_user.posts.build(post_params)
-    @post.image.attach(params[:post][:image]) if params[:post][:image]
+    @post.image.attach(params[:post][:images]) if params[:post][:images]
     if @post.save
       flash[:success] = "Post created."
       redirect_to post_path(@post)
@@ -41,10 +41,14 @@ class PostsController < ApplicationController
     redirect_to :back
   end
 
+  def display_image
+    images.variant(resize_to_limit: [500, 500])
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :post_category_id, :content, :image)
+    params.require(:post).permit(:title, :post_category_id, :content, images:[])
   end
 
   def correct_user

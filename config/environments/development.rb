@@ -47,6 +47,8 @@ Rails.application.configure do
 
   config.assets.quiet = true
 
+  config.web_console.whitelisted_ips = ['0.0.0.0/0', '::/0']
+
   config.hosts.clear    # allow connect to local serv.
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

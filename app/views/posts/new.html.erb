@@ -10,7 +10,7 @@
       <%= f.select :post_category_id , @post_categories,{include_blank: 'Категория записи'}, {} %>
     </div>
     <span class="image">
-      <%= f.file_field :image %>
+      <%= f.file_field :images %>
     </span>
       <%= f.submit "Create_new_post", class: "btn btn-primary" %>
 <% end %>
