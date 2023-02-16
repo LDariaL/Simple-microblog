@@ -7,6 +7,7 @@ RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
     curl \
     git \
     libpq-dev \
+    nodejs\
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV LANG=C.UTF-8 \
@@ -26,8 +27,6 @@ RUN bundle config frozen true \
  && bundle install
 
 COPY . .
-
-RUN bundle exec rails assets:clobber && bundle exec rails assets:precompile
 
 EXPOSE 3000
 
