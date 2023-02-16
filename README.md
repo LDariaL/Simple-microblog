@@ -10,7 +10,7 @@
 Start (CLI):
 
 ```
-$ docker-compose up --build --force
+$ sudo docker-compose up --build --force
 ```
 
 Use local (browser's address line):
