@@ -1,9 +1,8 @@
 default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV.fetch("PGS_HOST") { "db" } %>
-  username: <%= ENV.fetch("PGS_USER") { "postgres" } %>
-  password: <%= ENV.fetch("PGS_PASS") { "postgres" } %>
+  username: postgres
+  password: 12345
 
 development:
   <<: *default
@@ -12,22 +11,20 @@ development:
   database: simple_microblog
   username: postgres
   password: 12345
-  host: localhost
 
-production:
-  <<: *default
-  adapter: postgresql
-  database: <%= ENV['DATABASE_NAME'] %>
-  host: <%= ENV['DATABASE_ENDPOINT'] %>
-  port: <%= ENV.fetch('DATABASE_PORT', 5432) %>
-  username: <%= Rails.application.credentials.dig(:production, :database_username) %>
-  password: <%= Rails.application.credentials.dig(:production, :database_password) %>
+#production:
+#  <<: *default
+#  adapter: postgresql
+#  database: <%= ENV['DATABASE_NAME'] %>
+#  host: <%= ENV['DATABASE_ENDPOINT'] %>
+#  port: <%= ENV.fetch('DATABASE_PORT', 5432) %>
+#  username: <%= Rails.application.credentials.dig(:production, :database_username) %>
+#  password: <%= Rails.application.credentials.dig(:production, :database_password) %>
 
 test:
   <<: *default
   encoding: unicode
   pool: 5
-  database: simple_microblog
+  database: test_simple_microblog
   username: postgres
   password: 12345
-  host: localhost

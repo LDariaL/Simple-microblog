@@ -114,6 +114,7 @@ GEM
     faker (3.0.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
+    foreman (0.87.2)
     formatador (1.1.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -338,6 +339,7 @@ DEPENDENCIES
   coffee-rails
   debug
   faker
+  foreman (~> 0.87.2)
   guard
   guard-bundler
   guard-rspec
