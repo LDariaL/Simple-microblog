@@ -1,7 +1,8 @@
 default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: db
+  # host: db    for container!
+  host: localhost
   database: microblog
   username: postgres
   password: 12345

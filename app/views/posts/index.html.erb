@@ -1,6 +1,6 @@
 <h1>All posts</h1>
 <h2>All categories</h2>
-<div class="block_content">
+<div class="posts">
   <ul class="tree-menu">
     <% @post_categories.each do |category| %>
       <li><span></span><%= link_to category.title, post_category_path(category) %></li>
@@ -8,29 +8,13 @@
   </ul>
 </div>
 <p>Random posts</p>
-<div class="block_content">
-  <ul class="blog-list-sidebar clearfix">
+<div class="posts">
     <% @random_posts.each do |article| %>
-      <li>
         <%= link_to article.title, post_path(article) %></h5>
         <div class="post-meta">
           <span class="date"><i class="fa fa-calendar"></i> <%= article.created_at.to_date %></span>
-        </div>
-      </div>
-      </li>
-    </ul>
-    </div>
-    <div class="center_column col-xs-12 col-sm-9" id="center_column">
-      <div class="col-sm-7">
-        <div class="entry-ci">
-          <h3><%= link_to article.title, post_path(article) %></h3>
-          <div class="entry-meta-data">
-            <span class="date"><i class="fa fa-calendar"></i> <%= article.created_at.to_date %></span>
-          </div>
-          <div>
-            <%= link_to "Post", post_path(article) %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <% end %>
+        </div>    
+      <% end %>
+</div>
+
+    

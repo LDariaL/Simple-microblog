@@ -1,17 +1,19 @@
 <li id="post-<%= @post.id %>">
-  <%= link_to gravatar_for(@post.user, size: 50), @post.user %>
-  <span class = "user"><%= link_to @post.user.name, @post.user %></span>
-  <span class = "title"><%= @post.title %></span>
-  <span class = "content">
-  <%= @post.content %>
-  <%= image_tag @post.images if @post.images.attached? %>
-  </span>
-  <span class = "post_category">POST CATEGORY: <%= link_to @post.post_category.title, post_category_path(@post.post_category_id) %></span>
-  <span class = "timestamp">
-    Posted <%= time_ago_in_words(@post.created_at) %> ago.
-  </span>
-  <% if current_user?(@post.user) %>
-    <%= link_to "delete", @post, method: :delete,
-    data: { confirm: "You sure?" } %>
-  <% end %>
+  <div class="posts">
+    <%= link_to gravatar_for(@post.user, size: 50), @post.user %>
+      <span class = "user"><%= link_to @post.user.name, @post.user %></span>
+      <span class = "title"><%= @post.title %></span>
+      <span class = "content">
+        <%= @post.content %>
+        <%= image_tag @post.images if @post.images.attached? %>
+      </span>
+      <span class = "post_category">POST CATEGORY: <%= link_to @post.post_category.title, post_category_path(@post.post_category_id) %></span>
+      <span class = "timestamp">
+        Posted <%= time_ago_in_words(@post.created_at) %> ago.
+      </span>
+         <% if current_user?(@post.user) %>
+          <%= link_to "delete", @post, method: :delete,
+             data: { confirm: "Are you sure?" } %>
+          <% end %>
+  </div>
 </li>

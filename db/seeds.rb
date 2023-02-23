@@ -12,7 +12,7 @@ User.destroy_all
             Users::Activation.new(@user).call
             
 30.times do |n|
-  name       =      Faker::Name.name
+  name       =      Faker::FunnyName.name
   email      =      "example-#{n+1}@microblog.ru"
   password   =      "password"
   @user =  User.create!(name:      name,
@@ -26,19 +26,17 @@ User.destroy_all
             Users::Activation.new(@user).call    
           end   
           
-puts "post_categories"
-
+PostCategory.destroy_all
 20.times do |n|
-  title = Faker::Lorem.word
+  title = Faker::Science.element
   @post_category = PostCategory.create!(title: title)
 end        
              
-puts "posts"
-
+Post.destroy_all
 @users = User.order(:created_at).take(20)
 10.times do |n|
             content = Faker::Lorem.sentences
-            title = Faker::Lorem.word
+            title = Faker::Verb.past
             @post_category_id = PostCategory.all.pluck(:id).sample
             @users.each do |user| 
             user.posts.create!(content: content, title: title, post_category_id: @post_category_id) 
