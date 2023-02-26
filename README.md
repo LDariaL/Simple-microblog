@@ -7,6 +7,21 @@
 
 * Puma Application Server 5.6.5
 
+
+For a proper containers work please change: 
+
+```
+# host: db    for container!
+host: localhost
+```
+to
+```
+host: db  
+# host: localhost
+```
+in config/database.yml
+
+
 Start (CLI):
 
 ```
