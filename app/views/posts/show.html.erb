@@ -1,4 +1,4 @@
-<li id="post-<%= @post.id %>">
+<li id="post-<%= @post.id %>" style="list-style: none">
   <div class="posts">
     <%= link_to gravatar_for(@post.user, size: 50), @post.user %>
       <span class = "user"><%= link_to @post.user.name, @post.user %></span>
@@ -7,7 +7,9 @@
         <%= @post.content %>
         <%= image_tag @post.images if @post.images.attached? %>
       </span>
+      <% if @post.post_category %>
       <span class = "post_category">POST CATEGORY: <%= link_to @post.post_category.title, post_category_path(@post.post_category_id) %></span>
+      <% end %>
       <span class = "timestamp">
         Posted <%= time_ago_in_words(@post.created_at) %> ago.
       </span>

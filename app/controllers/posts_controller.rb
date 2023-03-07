@@ -20,7 +20,7 @@ class PostsController < ApplicationController
       flash[:success] = "Post created."
       redirect_to post_path(@post)
     else
-      flash[:success] = "Post not created"
+      flash[:erros] = @post.errors.to_a
       redirect_back(fallback_location: root_path)
     end
   end
