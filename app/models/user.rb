@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    attr_accessor :remember_token, :activation_token
+    attr_accessor :remember_token, :activation_token, :reset_token
 #   before_save :activate_email
     validates :name, presence: true, length: { maximum: 50 }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -10,5 +10,4 @@ class User < ApplicationRecord
 # allow nil password it might be useful for the tests; the users can't sign up with empty password because has_secure_password method doesn't allow it
     validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
     has_many :posts, dependent: :destroy
-
 end

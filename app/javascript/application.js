@@ -1,17 +1,4 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
-import "jquery"
-import "jquery_ujs"
 import "controllers"
-import "bootstrap"
-import "popperjs/core"
-
-document.addEventListener("turbo:load", function () {
-  // This code is copied from Bootstrap's docs. See link below.
-  var tooltipTriggerList = [].slice.call(
-    document.querySelectorAll('[data-bs-toggle="tooltip"]')
-  );
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl);
-  });
-});
+import "custom/image_upload"
