@@ -5,13 +5,13 @@ class StaticPagesController < ApplicationController
     @post = current_user.posts.build if logged_in?
   end
 
-  def help
-  end
+  #def help
+  #end
 
-  def about
-  end
+  #def about
+  #end
 
-  def contact
-  end
+  #def contact
+  #end
 
 end
