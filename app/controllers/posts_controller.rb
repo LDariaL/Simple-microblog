@@ -30,9 +30,9 @@ class PostsController < ApplicationController
     @post_categories = PostCategory.limit(20).collect { |cat| [cat.title, cat.id] }
   end
 
-  #def feed
+  # def feed
   #  Post.where("user_id = ?", current_user.id)
-  #end
+  # end
 
   def destroy
     raise if @post.user_id != current_user.id

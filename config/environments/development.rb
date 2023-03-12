@@ -27,11 +27,11 @@ Rails.application.configure do
   config.sass.inline_source_maps = true
 
   config.active_storage.service = :local
-  
+
   config.action_mailer.raise_delivery_errors = false
 
   host = 'localhost:3000'
-  config.action_mailer.default_url_options = { host: host, protocol: 'http'}
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 
   config.action_mailer.perform_caching = false
 
@@ -49,7 +49,7 @@ Rails.application.configure do
 
   config.web_console.whitelisted_ips = ['0.0.0.0/0', '::/0']
 
-  config.hosts.clear    # allow connect to local serv.
+  config.hosts.clear # allow connect to local serv.
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

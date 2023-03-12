@@ -9,12 +9,12 @@
 </div>
 <p>Random posts</p>
 <div class="posts">
-    <% @random_posts.each do |article| %>
-        <%= link_to article.title, post_path(article) %></h5>
-        <div class="post-meta">
-          <span class="date"><i class="fa fa-calendar"></i> <%= article.created_at.to_date %></span>
-        </div>    
-      <% end %>
+  <% @random_posts.each do |article| %>
+    <%= link_to article.title, post_path(article) %></h5>
+    <div class="post-meta">
+      <span class="date"><i class="fa fa-calendar"></i> <%= article.created_at.to_date %></span>
+    </div>
+  <% end %>
 </div>
 
     

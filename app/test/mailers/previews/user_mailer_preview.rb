@@ -7,6 +7,7 @@ class UserMailerPreview < ActionMailer::Preview
     Users::Activation.new(user).call
     UserMailer.account_activation(user)
   end
+
   # Preview this email at
   # http://localhost:3000/rails/mailers/user_mailer/password_reset
   def password_reset

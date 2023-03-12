@@ -4,7 +4,7 @@ class PostCategory
   def initialize(*args)
     @title = title
   end
-end  
+end
 
 RSpec.describe PostCategory do
 
@@ -12,5 +12,5 @@ RSpec.describe PostCategory do
 
   it 'has a title' do
     expect(post_category.title) == ('Title')
-  end  
+  end
 end

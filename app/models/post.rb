@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   validates :content, presence: true, length: { maximum: 500 }
   validates :title, length: { maximum: 100 }, allow_nil: true
   validates :image, content_type: { in: %w[image/jpeg image/gif image/png],
-    message: "must be a valid image format" },
-    size: { less_than: 100.megabytes,
-    message: "should be less than 100MB" }
+                                    message: "must be a valid image format" },
+            size: { less_than: 100.megabytes,
+                    message: "should be less than 100MB" }
 end

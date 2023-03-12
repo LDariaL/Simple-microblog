@@ -5,14 +5,14 @@ class User
     @name = name
     @email = email
   end
-end  
+end
 
 RSpec.describe User do
-  
-  let(:user) { User.new('Name','email') }
+
+  let(:user) { User.new('Name', 'email') }
 
   it 'has a Name and email' do
     expect(user.name) == ('Name')
     expect(user.email) == ('email')
-  end  
+  end
 end

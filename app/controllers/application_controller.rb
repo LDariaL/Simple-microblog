@@ -1,14 +1,14 @@
 class ApplicationController < ActionController::Base
-    include SessionsHelper
-    include ModuleAuth
-    
-    private
+  include SessionsHelper
+  include Authenticate
 
-    def logged_in_user
-        unless logged_in?
-            store_location
-            flash[:danger] = "Log in"
-            redirect_to login_url
-        end
-    end            
+  private
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Log in"
+      redirect_to login_url
+    end
+  end
 end

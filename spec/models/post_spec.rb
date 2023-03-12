@@ -7,8 +7,8 @@ class Post
     @user_id = user_id
     @post_category_id = post_category_id
     @images = images
-  end  
-end 
+  end
+end
 
 RSpec.describe Post do
 
@@ -17,16 +17,16 @@ RSpec.describe Post do
   it 'has a title and content' do
     expect(post.title) == ('Title')
     expect(post.content) == ('Content')
-  end  
+  end
 
   it 'belongs to user' do
     expect(post.user_id) == ('user_id')
-  end  
+  end
 
   it 'has and can has not category' do
     expect(post.post_category_id) == ('post_category_id')
     post_category_id = nil
     expect(post.post_category_id) == nil
-  end  
+  end
 
 end  
