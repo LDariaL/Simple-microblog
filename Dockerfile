@@ -1,5 +1,7 @@
 
-FROM ruby:3.1.2
+FROM ruby:3.2.1
+
+RUN useradd app
 
 RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
     build-essential \
@@ -17,16 +19,18 @@ ENV LANG=C.UTF-8 \
 
 RUN gem update --system && gem install bundler
 
-WORKDIR /usr/src/microblog
+USER app
 
-COPY Gemfile* ./
+WORKDIR /home/app
+
+COPY --chown=app Gemfile* ./
 
 RUN bundle config frozen true \
  && bundle config jobs 4 \
  && bundle config deployment true \
  && bundle install
 
-COPY . .
+COPY --chown=app . ./
 
 EXPOSE 3000
 

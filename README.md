@@ -4,8 +4,6 @@
 
 * DB: PostgreSQL
 
-* Puma Application Server 5.6.5
-
 For properly working please change:
 
 ```
@@ -25,7 +23,7 @@ in config/database.yml
 Start (CLI):
 
 ```
-$ sudo docker-compose up --build --force
+$ sudo docker-compose up --build
 ```
 
 Use local (browser's address line):
