@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
   include Authenticate
+  include Pundit::Authorization
 
   private
 

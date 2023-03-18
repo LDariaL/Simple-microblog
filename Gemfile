@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.1"
 
+gem "pundit", "~> 2.3"
 gem "foreman", "~> 0.87.2"
 gem "rails", "~> 7.0.4"
 gem "image_processing"
@@ -56,3 +57,5 @@ group :test do
   gem "guard-rspec"
 
 end
+
+
