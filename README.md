@@ -18,7 +18,7 @@ host: db
 # host: localhost
 ```
 
-in config/database.yml
+in /config/database.yml
 
 Start (CLI):
 
